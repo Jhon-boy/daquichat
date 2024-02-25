@@ -7,14 +7,17 @@ export const autentificacion = (req, res) => {
 
   if (cedula != "0606253169") {
     const response = {
-      codeError: 500, // Bad Request
-      message: "Todos los campos son obligatorios.",
-      content: null,
+      codeError: 200, // Bad Request
+      message: "Autentitifacion fallida",
+      content: {
+        autenticacionExitosa: false,
+        codigoAuth: null,
+      },
     };
     console.log(
       " ===== El usuario es distintos a los registros de la base de datos"
     );
-    return res.status(500).json(response);
+    return res.status(200).json(response);
   }
   const response = {
     codeError: 200,
